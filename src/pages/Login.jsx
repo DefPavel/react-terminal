@@ -1,5 +1,5 @@
 import logo from '../assets/logo.svg';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const Login = () => {
             <div className="items-center lg:flex">
                 <div className="w-full lg:w-1/2">
                     <div className="lg:max-w-lg">
-                        <form className="w-full max-w-md">
+                        <form className="w-full">
                             <h1
                                 className="mt-4 text-2xl font-semibold tracking-wide text-center text-gray-800 capitalize md:text-4xl dark:text-white">
                                 Admin-<span className="text-blue-500 ">Terminal</span>
@@ -76,9 +76,12 @@ const Login = () => {
                     <img className="w-full h-full lg:max-w-3xl" src={logo} alt="Catalogue-pana.svg" />
                 </div>
             </div>
-            <Helmet>
-            <title>Авторизация</title>
-            </Helmet>
+            <HelmetProvider>
+                <Helmet>
+                <title>Авторизация</title>
+                </Helmet>
+            </HelmetProvider>
+           
         </div>
     )
 }
